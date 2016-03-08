@@ -54,7 +54,7 @@ public class SearchForMostOccurence {
         }
         System.out.println(map);
         try {
-            List<Map.Entry> mapE =  getMaxKeyValue2(null);
+            List<Map.Entry> mapE =  getMaxKeyValue2(map);
             for(Map.Entry mapEntry:mapE){
                 System.out.println(mapEntry.getKey()+"====####====>"+mapEntry.getValue());
             }
