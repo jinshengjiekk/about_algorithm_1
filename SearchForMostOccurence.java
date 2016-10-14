@@ -67,9 +67,7 @@ public class SearchForMostOccurence {
      * 找出出现次数最多的字符，出现最多次数相同的字符同时列出
      * @param str
      */
-    /*
-     * @param str
-     */
+
     public static void printCharAndFrequecy(String str) {
         // TODO
        /* String strPattern = "[a-zA-Z]{1}";
