@@ -4,19 +4,21 @@ import java.util.Arrays;
 
 /**
  * Created by JINSHENGJIE on 16/10/14 .
+ * ============================================================================================================================
  * Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
  * Do not allocate extra space for another array, you must do this in place with constant memory.
  * For example,
  * Given input array nums = [1,1,2],
  * Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn't matter what you leave beyond the new length.
  * Subscribe to see which companies asked this question
+ * =============================================================================================================================
  */
 public class RemoveDuplicatesFromSortedArray {
     /**
      * Remove duplicates int.
-     *
+     * ====original===
      * @param sortedArray the sorted arrays
-     * @return the int
+     * @return the int  返回的仅仅是原数组被删除选定元素后的表象长度，数组的长度仍然不变，元素会有变动，后面的元素会重复。
      */
     public int removeDuplicates(int[] sortedArray) {
         int length = sortedArray.length;
