@@ -1,4 +1,4 @@
-package com.jsj.array;
+package java;
 
 import java.util.Date;
 import java.util.Random;

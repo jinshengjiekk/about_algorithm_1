@@ -1,4 +1,4 @@
-package com.jsj.poj;
+package java;
 
 //2016年2月26日下午9:38:48
 public class MoveZeros {
