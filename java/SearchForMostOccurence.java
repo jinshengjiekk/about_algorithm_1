@@ -5,6 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ *  ===original===
+ *
  * Created by JINSHENGJIE on 2016/2/23 with IDEA.
  */
 public class SearchForMostOccurence {

@@ -5,6 +5,8 @@ import java.util.Map;
 
 //2016年3月9日下午5:12:29
 /**
+ *
+ *  ===original===
  * 给定一个数组和一个目标数值，找出数组中两个数值相加等于给定目标数值的位置(基于1开始)
  * 
  * @author JINSHENGJIE

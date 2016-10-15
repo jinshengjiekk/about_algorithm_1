@@ -16,6 +16,7 @@ import java.util.Arrays;
 public class RemoveElement {
 
     /**
+     * ===original===
      * @param nums
      * @param val
      * @return 返回的仅仅是原数组被删除选定元素后的表象长度，数组的长度仍然不变，元素会有变动，后面的元素会重复。

@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 //2016年2月26日下午9:19:46
 /**
+ * ===original===
+ *
  * 对一个有序数组进行二分查找
  * 
  * @author JINSHENGJIE
