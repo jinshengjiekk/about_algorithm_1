@@ -14,17 +14,31 @@ import java.util.Arrays;
  * =============================================================================================================================
  */
 public class RemoveDuplicatesFromSortedArray {
+    public static void main(String[] args) {
+        int[] sortedArray = {1, 2, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9};
+        int[] zeroArr = {};
+        RemoveDuplicatesFromSortedArray rdfs = new RemoveDuplicatesFromSortedArray();
+        System.out.println(rdfs.removeDuplicates1(sortedArray));
+        System.out.println(rdfs.removeDuplicates1(zeroArr));
+        System.out.println(rdfs.removeDuplicates2(sortedArray));
+        System.out.println(rdfs.removeDuplicates2(zeroArr));
+    }
+
     /**
      * Remove duplicates int.
      * ===original===
+     *
      * @param sortedArray the sorted arrays
      * @return the int  返回的仅仅是原数组被删除选定元素后的表象长度，数组的长度仍然不变，元素会有变动，后面的元素会重复。
      */
-    public int removeDuplicates(int[] sortedArray) {
+    public int removeDuplicates1(int[] sortedArray) {
         int length = sortedArray.length;
+        if (length == 0) {
+            return 0;
+        }
         int i = 0;
         int j = 1;
-        for (; i < length ; i++, j++) {
+        for (; i < length; i++, j++) {
             if (sortedArray[--j] == sortedArray[i]) {
                 continue;
             }
@@ -34,9 +48,26 @@ public class RemoveDuplicatesFromSortedArray {
         return j;
     }
 
-    public static void main(String[] args) {
-        int[] sortedArray = {1, 2, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9};
-        RemoveDuplicatesFromSortedArray rdfs = new RemoveDuplicatesFromSortedArray();
-        System.out.println(rdfs.removeDuplicates(sortedArray));
+    /**
+     * Remove duplicates 2 int.
+     * ===original===
+     *
+     * @param arr the arr
+     * @return the int 返回的仅仅是原数组被删除选定元素后的表象长度，数组的长度仍然不变，元素会有变动，后面的元素会重复。
+     */
+    public int removeDuplicates2(int[] arr) {
+        int l = arr.length;
+        if (l == 0) {
+            return 0;
+        }
+        int i = 1;
+        int j = 0;
+        for (; i < l; i++) {
+            if (arr[i] != arr[j]) {
+                arr[++j] = arr[i];
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+        return j + 1;
     }
 }
