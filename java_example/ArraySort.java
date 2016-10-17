@@ -1,4 +1,4 @@
-package java;
+package java_example;
 
 import java.util.Date;
 import java.util.Random;
