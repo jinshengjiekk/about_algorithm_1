@@ -22,41 +22,85 @@ public class RemoveDuplicatesFromSortedArrayII {
         int[] arr2 = {54, 32, 31, 31, 23, 23, 23, 23, 23, 23, 23, 21, 21, 10, 10, 10, 2, 1};
         int[] arr3 = {1, 2};
         int[] arr4 = {1};
-        System.out.println(rdfs2.removeDuplicate(arr0));
-        System.out.println(rdfs2.removeDuplicate(arr1));
-        System.out.println(rdfs2.removeDuplicate(arr2));
-        System.out.println(rdfs2.removeDuplicate(arr3));
-        System.out.println(rdfs2.removeDuplicate(arr4));
+        int[] arr5 = {1, 2, 3};
+
+        System.out.println("****************removeDuplicate_1*******************");
+        System.out.println(rdfs2.removeDuplicate_1(arr0));
+        System.out.println(rdfs2.removeDuplicate_1(arr1));
+        System.out.println(rdfs2.removeDuplicate_1(arr2));
+        System.out.println(rdfs2.removeDuplicate_1(arr3));
+        System.out.println(rdfs2.removeDuplicate_1(arr4));
+        System.out.println(rdfs2.removeDuplicate_1(arr5));
+        System.out.println("****************removeDuplicate_2*******************");
+        System.out.println(rdfs2.removeDuplicate_2(arr0));
+        System.out.println(rdfs2.removeDuplicate_2(arr1));
+        System.out.println(rdfs2.removeDuplicate_2(arr2));
+        System.out.println(rdfs2.removeDuplicate_2(arr3));
+        System.out.println(rdfs2.removeDuplicate_2(arr4));
+        System.out.println(rdfs2.removeDuplicate_2(arr5));
 
     }
 
     /**
      * Remove duplicate int.
      * ===original===
+     * 此方法相对简单明了，利用两个指针同向移动；
      *
-     * @param arr the arr
+     * @param nums the nums
      * @return the int 返回的是过滤后的长度，数组长度仍然没有变，后面的元素存在重复现象
      */
-    public int removeDuplicate(int[] arr) {
-        int l = arr.length;
-        if (l == 0) {
+    public int removeDuplicate_1(int[] nums) {
+        int l = nums.length;
+        if (l == 0 || nums == null) {
             return 0;
         }
-        int i = 0;
-        int j = 1;
-        for (; i < l; i++, j++) {
-            if (arr[i] == arr[--j] && j >= 1 && arr[i] == arr[j - 1]) {
-                continue;
-            }
-            if (j == 0) {
-                arr[j++] = arr[i];
-            } else if (j < l - 1) {
-                arr[++j] = arr[i];
+        int i = 1;
+        int j = 0;
+        int count = 1;
+        for (; i < l; i++) {
+            if (nums[i] == nums[j]) {
+                if (count < 2) {
+                    nums[++j] = nums[i];
+                    count++;
+                }
+            } else {
+                nums[++j] = nums[i];
+                count = 1;
             }
         }
 
-        System.out.println(Arrays.toString(arr));
-        return j;
+        System.out.println(Arrays.toString(nums));
+        return j + 1;
+    }
+
+    /**
+     * Remove duplicate 2 int.
+     * 此方法相对复杂难懂，利用双指针交叉移动；
+     * 返回的数组满足要求，但是返回的长度不对！！！
+     *
+     * @param nums the nums
+     * @return the int
+     */
+    public int removeDuplicate_2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int cur = 0;
+        int i, j;
+        for (i = 0; i < nums.length; ) {
+            for (j = i; j < nums.length; j++) {
+                if (nums[j] != nums[i]) {
+                    break;
+                }
+                if (j - i < 2) {
+                    nums[cur++] = nums[i];
+                }
+            }
+            i = j;
+        }
+        System.out.println(Arrays.toString(nums));
+        return cur;
     }
 
 }
+
