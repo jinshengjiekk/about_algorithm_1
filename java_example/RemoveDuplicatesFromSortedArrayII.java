@@ -18,7 +18,7 @@ public class RemoveDuplicatesFromSortedArrayII {
     public static void main(String[] args) {
         RemoveDuplicatesFromSortedArrayII rdfs2 = new RemoveDuplicatesFromSortedArrayII();
         int[] arr0 = {};
-        int[] arr1 = {1, 1, 1, 2, 2, 3};
+        int[] arr1 = {1, 1, 1, 2, 2, 2, 2, 3};
         int[] arr2 = {54, 32, 31, 31, 23, 23, 23, 23, 23, 23, 23, 21, 21, 10, 10, 10, 2, 1};
         int[] arr3 = {1, 2};
         int[] arr4 = {1};
@@ -38,6 +38,13 @@ public class RemoveDuplicatesFromSortedArrayII {
         System.out.println(rdfs2.removeDuplicate_2(arr3));
         System.out.println(rdfs2.removeDuplicate_2(arr4));
         System.out.println(rdfs2.removeDuplicate_2(arr5));
+        System.out.println("****************removeDuplicate_3*******************");
+        System.out.println(rdfs2.removeDuplicate_3(arr0));
+        System.out.println(rdfs2.removeDuplicate_3(arr1));
+        System.out.println(rdfs2.removeDuplicate_3(arr2));
+        System.out.println(rdfs2.removeDuplicate_3(arr3));
+        System.out.println(rdfs2.removeDuplicate_3(arr4));
+        System.out.println(rdfs2.removeDuplicate_3(arr5));
 
     }
 
@@ -100,6 +107,22 @@ public class RemoveDuplicatesFromSortedArrayII {
         }
         System.out.println(Arrays.toString(nums));
         return cur;
+    }
+
+    /**
+     * Remove duplicate 3 int.
+     * 此方法返回的长度同样也是达不到要求；
+     * @param nums the nums
+     * @return the int
+     */
+    public int removeDuplicate_3(int[] nums) {
+        int i = 0;
+        for (int n : nums)
+            if (i < 2 || n != nums[i - 2]) {
+                nums[i++] = n;
+            }
+        System.out.println(Arrays.toString(nums));
+        return i;
     }
 
 }
