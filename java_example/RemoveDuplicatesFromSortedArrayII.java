@@ -83,7 +83,7 @@ public class RemoveDuplicatesFromSortedArrayII {
     /**
      * Remove duplicate 2 int.
      * 此方法相对复杂难懂，利用双指针交叉移动；
-     * 返回的数组满足要求，但是返回的长度不对！！！
+     * 返回的数组满足要求，但是返回的长度不对！但是Accepted了。
      *
      * @param nums the nums
      * @return the int
@@ -111,7 +111,7 @@ public class RemoveDuplicatesFromSortedArrayII {
 
     /**
      * Remove duplicate 3 int.
-     * 此方法返回的长度同样也是达不到要求；
+     * 此方法返回的长度同样也是达不到要求；但是Accepted了。
      * @param nums the nums
      * @return the int
      */
