@@ -18,7 +18,7 @@ public class RemoveDuplicatesFromSortedList {
     public static void main(String[] args) {
         RemoveDuplicatesFromSortedList rdsl = new RemoveDuplicatesFromSortedList();
         ArrayList<Integer> list = new ArrayList(Arrays.asList(1, 1, 1, 1, 2, 3, 5, 5, 6));
-        Iterator<Integer> iterator = rdsl.removeDulplicate(list).iterator();
+        Iterator<Integer> iterator = rdsl.removeDuplicate_1(list).iterator();
         while (iterator.hasNext()) {
             Integer next = iterator.next();
             System.out.print(next + ",");
@@ -26,13 +26,13 @@ public class RemoveDuplicatesFromSortedList {
     }
 
     /**
-     * Remove dulplicate array list.
+     * Remove duplicate array list.
      * ===origin===
      *   ----------------------------以ArrayList 代替 ListNode-----------------------------------
      * @param list the list
      * @return the array list
      */
-    public ArrayList removeDulplicate(ArrayList<Integer> list) {
+    public ArrayList removeDuplicate_1(ArrayList<Integer> list) {
         ArrayList<Integer> resultList = new ArrayList<>();
 /*
 
@@ -51,4 +51,30 @@ public class RemoveDuplicatesFromSortedList {
         });
         return resultList;
     }
+
+    /**
+     * Remove duplicate 2 list node.
+     *
+     * @param head the head
+     * @return the list node
+     */
+    public ListNode removeDuplicate_2(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        if(head.val == head.next.val){
+            head.next = head.next.next;
+            head = removeDuplicate_2(head);
+        }
+        head.next = removeDuplicate_2(head.next);
+        return head;
+    }
+
 }
+
+
+class ListNode {
+      int val;
+      ListNode next;
+      ListNode(int x) { val = x; }
+  }
