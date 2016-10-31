@@ -18,7 +18,7 @@ public class RemoveDuplicatesFromSortedArrayII {
     public static void main(String[] args) {
         RemoveDuplicatesFromSortedArrayII rdfs2 = new RemoveDuplicatesFromSortedArrayII();
         int[] arr0 = {};
-        int[] arr1 = {1, 1, 1, 2, 2, 3};
+        int[] arr1 = {1, 1, 1, 2, 2, 2, 2, 3};
         int[] arr2 = {54, 32, 31, 31, 23, 23, 23, 23, 23, 23, 23, 21, 21, 10, 10, 10, 2, 1};
         int[] arr3 = {1, 2};
         int[] arr4 = {1};
@@ -31,13 +31,34 @@ public class RemoveDuplicatesFromSortedArrayII {
         System.out.println(rdfs2.removeDuplicate_1(arr3));
         System.out.println(rdfs2.removeDuplicate_1(arr4));
         System.out.println(rdfs2.removeDuplicate_1(arr5));
+
+        int[] arr00 = {};
+        int[] arr11 = {1, 1, 1, 2, 2, 2, 2, 3};
+        int[] arr22 = {54, 32, 31, 31, 23, 23, 23, 23, 23, 23, 23, 21, 21, 10, 10, 10, 2, 1};
+        int[] arr33 = {1, 2};
+        int[] arr44 = {1};
+        int[] arr55 = {1, 2, 3};
         System.out.println("****************removeDuplicate_2*******************");
-        System.out.println(rdfs2.removeDuplicate_2(arr0));
-        System.out.println(rdfs2.removeDuplicate_2(arr1));
-        System.out.println(rdfs2.removeDuplicate_2(arr2));
-        System.out.println(rdfs2.removeDuplicate_2(arr3));
-        System.out.println(rdfs2.removeDuplicate_2(arr4));
-        System.out.println(rdfs2.removeDuplicate_2(arr5));
+        System.out.println(rdfs2.removeDuplicate_2(arr00));
+        System.out.println(rdfs2.removeDuplicate_2(arr11));
+        System.out.println(rdfs2.removeDuplicate_2(arr22));
+        System.out.println(rdfs2.removeDuplicate_2(arr33));
+        System.out.println(rdfs2.removeDuplicate_2(arr44));
+        System.out.println(rdfs2.removeDuplicate_2(arr55));
+
+        int[] arr000 = {};
+        int[] arr111 = {1, 1, 1, 2, 2, 2, 2, 3};
+        int[] arr222 = {54, 32, 31, 31, 23, 23, 23, 23, 23, 23, 23, 21, 21, 10, 10, 10, 2, 1};
+        int[] arr333 = {1, 2};
+        int[] arr444 = {1};
+        int[] arr555 = {1, 2, 3};
+        System.out.println("****************removeDuplicate_3*******************");
+        System.out.println(rdfs2.removeDuplicate_3(arr000));
+        System.out.println(rdfs2.removeDuplicate_3(arr111));
+        System.out.println(rdfs2.removeDuplicate_3(arr222));
+        System.out.println(rdfs2.removeDuplicate_3(arr333));
+        System.out.println(rdfs2.removeDuplicate_3(arr444));
+        System.out.println(rdfs2.removeDuplicate_3(arr555));
 
     }
 
@@ -76,7 +97,6 @@ public class RemoveDuplicatesFromSortedArrayII {
     /**
      * Remove duplicate 2 int.
      * 此方法相对复杂难懂，利用双指针交叉移动；
-     * 返回的数组满足要求，但是返回的长度不对！！！
      *
      * @param nums the nums
      * @return the int
@@ -100,6 +120,22 @@ public class RemoveDuplicatesFromSortedArrayII {
         }
         System.out.println(Arrays.toString(nums));
         return cur;
+    }
+
+    /**
+     * Remove duplicate 3 int.
+     *
+     * @param nums the nums
+     * @return the int
+     */
+    public int removeDuplicate_3(int[] nums) {
+        int i = 0;
+        for (int n : nums)
+            if (i < 2 || n != nums[i - 2]) {
+                nums[i++] = n;
+            }
+        System.out.println(Arrays.toString(nums));
+        return i;
     }
 
 }
