@@ -54,7 +54,7 @@ public class RemoveDuplicatesFromSortedList {
 
     /**
      * Remove duplicate 2 list node.
-     *
+     * 单向有序列表，遇到重复的元素就把next指针向后跳到下一个，过滤重复，如此迭代
      * @param head the head
      * @return the list node
      */
