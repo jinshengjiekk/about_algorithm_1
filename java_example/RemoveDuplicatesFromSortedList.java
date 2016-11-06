@@ -28,7 +28,8 @@ public class RemoveDuplicatesFromSortedList {
     /**
      * Remove duplicate array list.
      * ===origin===
-     *   ----------------------------以ArrayList 代替 ListNode-----------------------------------
+     * ----------------------------以ArrayList 代替 ListNode-----------------------------------
+     *
      * @param list the list
      * @return the array list
      */
@@ -55,14 +56,15 @@ public class RemoveDuplicatesFromSortedList {
     /**
      * Remove duplicate 2 list node.
      * 单向有序列表，遇到重复的元素就把next指针向后跳到下一个，过滤重复，如此迭代
+     *
      * @param head the head
      * @return the list node
      */
     public ListNode removeDuplicate_2(ListNode head) {
-        if(head == null || head.next == null){
+        if (head == null || head.next == null) {
             return head;
         }
-        if(head.val == head.next.val){
+        if (head.val == head.next.val) {
             head.next = head.next.next;
             head = removeDuplicate_2(head);
         }
@@ -70,11 +72,11 @@ public class RemoveDuplicatesFromSortedList {
         return head;
     }
 
+    class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) { val = x; }
+    }
 }
 
-
-class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
-  }
