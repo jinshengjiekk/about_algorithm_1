@@ -1,4 +1,4 @@
-package java_example;
+package com.sennatech.algorithm;
 
 import java.util.*;
 import java.util.regex.Matcher;

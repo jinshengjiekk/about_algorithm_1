@@ -1,6 +1,8 @@
-package java_example;
+package com.sennatech.algorithm;
 
-import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.util.StopWatch;
 
 /**
  * Created by jinshengjie on 2016/10/22.
@@ -18,18 +20,22 @@ import java.util.Date;
  */
 public class BottomUp {
 
+    private static final Logger logger = LoggerFactory.getLogger(BottomUp.class);
+
     public static void main(String[] args) {
         BottomUp bu = new BottomUp();
-        long start1 = new Date().getTime();
+        final StopWatch watch = new StopWatch();
+        watch.start("product1ToN_1 time-consuming");
         try {
             bu.product1ToN_1(20000);
         } catch (StackOverflowError ex) {
-            System.out.println("StackOverflowError");
+            logger.info("StackOverflowError");
         }
-        System.out.println("product1ToN_1 time-consuming: " + (new Date().getTime() - start1) + "ms");
-        long start2 = new Date().getTime();
+        watch.stop();
+        watch.start("product1ToN_2 time-consuming");
         bu.product1ToN_2(200000000);
-        System.out.println("product1ToN_2 time-consuming: " + (new Date().getTime() - start2) + "ms");
+        watch.stop();
+        watch.prettyPrint();
     }
 
     //bad

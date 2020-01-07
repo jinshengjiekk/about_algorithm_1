@@ -1,6 +1,9 @@
-package java_example;
+package com.sennatech.algorithm;
 
 import java.util.Arrays;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by JINSHENGJIE on 16/10/14 .
@@ -15,25 +18,27 @@ import java.util.Arrays;
  */
 public class RemoveDuplicatesFromSortedArray {
 
+    private static final Logger logger = LoggerFactory.getLogger(RemoveDuplicatesFromSortedArray.class);
+
     public static void main(String[] args) {
         int[] sortedArray1 = {1, 2, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9};
         int[] zeroArr1 = {};
         RemoveDuplicatesFromSortedArray rdfs = new RemoveDuplicatesFromSortedArray();
-        System.out.println("************************removeDuplicates1*********************");
-        System.out.println(rdfs.removeDuplicates1(sortedArray1));
-        System.out.println(rdfs.removeDuplicates1(zeroArr1));
+        logger.info("************************removeDuplicates1*********************");
+        logger.info(String.valueOf(rdfs.removeDuplicates1(sortedArray1)));
+        logger.info(String.valueOf(rdfs.removeDuplicates1(zeroArr1)));
 
-        System.out.println("************************removeDuplicates2*********************");
+        logger.info("************************removeDuplicates2*********************");
         int[] sortedArray2 = {1, 2, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9};
         int[] zeroArr2 = {};
-        System.out.println(rdfs.removeDuplicates2(sortedArray2));
-        System.out.println(rdfs.removeDuplicates2(zeroArr2));
+        logger.info(String.valueOf(rdfs.removeDuplicates2(sortedArray2)));
+        logger.info(String.valueOf(rdfs.removeDuplicates2(zeroArr2)));
 
-        System.out.println("************************removeDuplicates3*********************");
+        logger.info("************************removeDuplicates3*********************");
         int[] sortedArray3 = {1, 2, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9};
         int[] zeroArr3 = {};
-        System.out.println(rdfs.removeDuplicates3(sortedArray3));
-        System.out.println(rdfs.removeDuplicates3(zeroArr3));
+        logger.info(String.valueOf(rdfs.removeDuplicates3(sortedArray3)));
+        logger.info(String.valueOf(rdfs.removeDuplicates3(zeroArr3)));
     }
 
     /**
@@ -56,7 +61,7 @@ public class RemoveDuplicatesFromSortedArray {
             }
             sortedArray[++j] = sortedArray[i];
         }
-        System.out.println(Arrays.toString(sortedArray));
+        logger.info(Arrays.toString(sortedArray));
         return j;
     }
 
@@ -79,7 +84,7 @@ public class RemoveDuplicatesFromSortedArray {
                 arr[++j] = arr[i];
             }
         }
-        System.out.println(Arrays.toString(arr));
+        logger.info(Arrays.toString(arr));
         return j + 1;
     }
 
@@ -96,7 +101,7 @@ public class RemoveDuplicatesFromSortedArray {
                 arr[i++] = n;
             }
         }
-        System.out.println(Arrays.toString(arr));
+        logger.info(Arrays.toString(arr));
         return i;
     }
 

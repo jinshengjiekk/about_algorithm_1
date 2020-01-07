@@ -1,4 +1,4 @@
-package java_example;
+package com.sennatech.algorithm;
 
 /**
  * Created by jinshengjie on 2016/11/6.

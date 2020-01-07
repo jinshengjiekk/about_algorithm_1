@@ -1,6 +1,9 @@
-package java_example;
+package com.sennatech.algorithm;
 
 import java.util.Arrays;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by JINSHENGJIE on 16/10/14 .
@@ -14,6 +17,8 @@ import java.util.Arrays;
  *      =================================================================================
  */
 public class RemoveElement {
+
+    private static final Logger logger = LoggerFactory.getLogger(RemoveElement.class);
 
     /**
      * ===original===
@@ -31,7 +36,7 @@ public class RemoveElement {
             }
             nums[j++] = nums[i];
         }
-        System.out.println(Arrays.toString(nums));
+        logger.info(Arrays.toString(nums));
         return j;
     }
 
@@ -39,7 +44,7 @@ public class RemoveElement {
         int[] arr = {2, 3, 4, 5, 6, 1, 5, 7, 8, 45, 0};
         int target = 5;
         int resultLength = removeElement(arr, target);
-        System.out.println(resultLength);
+        logger.info("length:{}", resultLength);
     }
 
 }

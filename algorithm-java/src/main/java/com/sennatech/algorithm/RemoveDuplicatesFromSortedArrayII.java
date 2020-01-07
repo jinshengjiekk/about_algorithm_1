@@ -1,6 +1,9 @@
-package java_example;
+package com.sennatech.algorithm;
 
 import java.util.Arrays;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by JINSHENGJIE on 16/10/17 .
@@ -14,6 +17,8 @@ import java.util.Arrays;
  * ===================================================================================================
  */
 public class RemoveDuplicatesFromSortedArrayII {
+    
+    private static final Logger logger = LoggerFactory.getLogger(RemoveDuplicatesFromSortedArrayII.class);
 
     public static void main(String[] args) {
         RemoveDuplicatesFromSortedArrayII rdfs2 = new RemoveDuplicatesFromSortedArrayII();
@@ -24,13 +29,13 @@ public class RemoveDuplicatesFromSortedArrayII {
         int[] arr4 = {1};
         int[] arr5 = {1, 2, 3};
 
-        System.out.println("****************removeDuplicate_1*******************");
-        System.out.println(rdfs2.removeDuplicate_1(arr0));
-        System.out.println(rdfs2.removeDuplicate_1(arr1));
-        System.out.println(rdfs2.removeDuplicate_1(arr2));
-        System.out.println(rdfs2.removeDuplicate_1(arr3));
-        System.out.println(rdfs2.removeDuplicate_1(arr4));
-        System.out.println(rdfs2.removeDuplicate_1(arr5));
+        logger.info("****************removeDuplicate_1*******************");
+        logger.info(String.valueOf(rdfs2.removeDuplicate_1(arr0)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_1(arr1)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_1(arr2)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_1(arr3)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_1(arr4)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_1(arr5)));
 
         int[] arr00 = {};
         int[] arr11 = {1, 1, 1, 2, 2, 2, 2, 3};
@@ -38,13 +43,13 @@ public class RemoveDuplicatesFromSortedArrayII {
         int[] arr33 = {1, 2};
         int[] arr44 = {1};
         int[] arr55 = {1, 2, 3};
-        System.out.println("****************removeDuplicate_2*******************");
-        System.out.println(rdfs2.removeDuplicate_2(arr00));
-        System.out.println(rdfs2.removeDuplicate_2(arr11));
-        System.out.println(rdfs2.removeDuplicate_2(arr22));
-        System.out.println(rdfs2.removeDuplicate_2(arr33));
-        System.out.println(rdfs2.removeDuplicate_2(arr44));
-        System.out.println(rdfs2.removeDuplicate_2(arr55));
+        logger.info("****************removeDuplicate_2*******************");
+        logger.info(String.valueOf(rdfs2.removeDuplicate_2(arr00)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_2(arr11)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_2(arr22)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_2(arr33)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_2(arr44)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_2(arr55)));
 
         int[] arr000 = {};
         int[] arr111 = {1, 1, 1, 2, 2, 2, 2, 3};
@@ -52,13 +57,13 @@ public class RemoveDuplicatesFromSortedArrayII {
         int[] arr333 = {1, 2};
         int[] arr444 = {1};
         int[] arr555 = {1, 2, 3};
-        System.out.println("****************removeDuplicate_3*******************");
-        System.out.println(rdfs2.removeDuplicate_3(arr000));
-        System.out.println(rdfs2.removeDuplicate_3(arr111));
-        System.out.println(rdfs2.removeDuplicate_3(arr222));
-        System.out.println(rdfs2.removeDuplicate_3(arr333));
-        System.out.println(rdfs2.removeDuplicate_3(arr444));
-        System.out.println(rdfs2.removeDuplicate_3(arr555));
+        logger.info("****************removeDuplicate_3*******************");
+        logger.info(String.valueOf(rdfs2.removeDuplicate_3(arr000)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_3(arr111)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_3(arr222)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_3(arr333)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_3(arr444)));
+        logger.info(String.valueOf(rdfs2.removeDuplicate_3(arr555)));
 
     }
 
@@ -90,7 +95,7 @@ public class RemoveDuplicatesFromSortedArrayII {
             }
         }
 
-        System.out.println(Arrays.toString(nums));
+        logger.info(Arrays.toString(nums));
         return j + 1;
     }
 
@@ -118,7 +123,7 @@ public class RemoveDuplicatesFromSortedArrayII {
             }
             i = j;
         }
-        System.out.println(Arrays.toString(nums));
+        logger.info(Arrays.toString(nums));
         return cur;
     }
 
@@ -134,7 +139,7 @@ public class RemoveDuplicatesFromSortedArrayII {
             if (i < 2 || n != nums[i - 2]) {
                 nums[i++] = n;
             }
-        System.out.println(Arrays.toString(nums));
+        logger.info(Arrays.toString(nums));
         return i;
     }
 
