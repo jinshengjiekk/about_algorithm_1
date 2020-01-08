@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by JINSHENGJIE on 16/10/31 .
  * ========================================
@@ -15,13 +18,15 @@ import java.util.Iterator;
  */
 public class RemoveDuplicatesFromSortedList {
 
+    private static final Logger logger = LoggerFactory.getLogger(RemoveDuplicatesFromSortedList.class);
+
     public static void main(String[] args) {
         RemoveDuplicatesFromSortedList rdsl = new RemoveDuplicatesFromSortedList();
         ArrayList<Integer> list = new ArrayList(Arrays.asList(1, 1, 1, 1, 2, 3, 5, 5, 6));
         Iterator<Integer> iterator = rdsl.removeDuplicate_1(list).iterator();
         while (iterator.hasNext()) {
             Integer next = iterator.next();
-            System.out.print(next + ",");
+            logger.info(next + ",");
         }
     }
 
