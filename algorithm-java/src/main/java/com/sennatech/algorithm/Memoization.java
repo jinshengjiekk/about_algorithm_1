@@ -1,39 +1,43 @@
 package com.sennatech.algorithm;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.util.StopWatch;
+
 /**
- * Created by jinshengjie on 2016/10/19.
- * <p>
+ * <pre>
  * ===========================================
  * Memoization ensures that a function doesn't run for the same inputs more than once by keeping
  * a record of the results for given inputs (usually in an object).
- * <p>
  * Memoization is a common strategy for dynamic programming problems, which are problems where the solution is composed
  * of solutions to the same problem with smaller inputs (as with the fibonacci problem, above). The other common strategy
  * for dynamic programming problems is going bottom-up, which is usually cleaner and often more efficient.
  * ===========================================
+ * </pre>
+ *
+ * @author Created by jinshengjie on 2016/10/19.
  */
 public class Memoization {
-    Map<Integer, Integer> memo = new HashMap<Integer, Integer>();
+
+    private Map<Integer, Integer> memo = new HashMap<Integer, Integer>();
 
     public static void main(String[] args) {
         Memoization memoization = new Memoization();
-        System.out.println("fibRecursive(bad)===>start");
-        long start1 = new Date().getTime();
-        memoization.fibRecursive(25);
-        System.out.println("fibRecursive(bad)===>end, Time-consuming = " + (new Date().getTime() - start1) + "ms");
-        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-        System.out.println("fib(good)===>start");
-        long start2 = new Date().getTime();
-        memoization.fib(25);
-        System.out.println("fib(good)===>end, Time-consuming = " + (new Date().getTime() - start2) + "ms");
+        final StopWatch stopWatch = new StopWatch();
+        stopWatch.start("fibRecursive(bad)===>start");
+        memoization.fibRecursive(15);
+        stopWatch.stop();
+        System.out.println(stopWatch.prettyPrint());
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&\n");
+        stopWatch.start("fib(good)===>start");
+        memoization.fib(15);
+        stopWatch.stop();
+        System.out.println(stopWatch.prettyPrint());
     }
 
     // bad
-    public int fibRecursive(int n) {
+    private int fibRecursive(int n) {
         if (n == 0 || n == 1) {
             return n;
         }
@@ -41,10 +45,8 @@ public class Memoization {
         return fibRecursive(n - 1) + fibRecursive(n - 2);
     }
 
-    //**********************************************************************************************
     // good
-    public int fib(int n) {
-
+    private int fib(int n) {
         // edge case
         if (n < 0) {
             throw new IllegalArgumentException("Index was negative. No such thing as a negative index in a series.");
