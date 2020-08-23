@@ -23,11 +23,14 @@ public class MoveZeros {
 
     private static final Logger logger = LoggerFactory.getLogger(MoveZeros.class);
 
+    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
-        int[] array = {2, 3, 0, 6, 3, 5, 0, 3, 4, 0, 0, 5};
-        moveZero1(array);
-        moveZero2(array);
-        moveZeros3(array);
+        int[] array_1 = {0, 2, 3, 0, 6, 3, 5, 0, 3, 4, 0, 0, 5};
+        int[] array_2 = {0, 2, 3, 0, 6, 3, 5, 0, 3, 4, 0, 0, 5};
+        int[] array_3 = {0, 2, 3, 0, 6, 3, 5, 0, 3, 4, 0, 0, 5};
+        moveZero1(array_1);
+        moveZero2(array_2);
+        moveZeros3(array_3);
     }
 
     /**
@@ -53,12 +56,12 @@ public class MoveZeros {
      */
     private static void moveZeros3(int[] array) {
         if (Objects.nonNull(array) && array.getClass().isArray()) {
-            //j 始终代表以及遍历过的元素最后一个非零的指针
+            //lastNonZeroFountAt 始终代表以及遍历过的元素最后一个非零的指针
             for (int lastNonZeroFountAt = 0, cur = 0; cur < array.length; cur++) {
                 if (array[cur] != 0) {
                     // 加了这一步判断将减少数据交换次数
                     if (lastNonZeroFountAt != cur) {
-                        array[lastNonZeroFountAt] = array[cur];
+                        array[lastNonZeroFountAt++] = array[cur];
                         array[cur] = 0;
                     } else {
                         lastNonZeroFountAt++;
